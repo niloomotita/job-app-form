@@ -3,6 +3,7 @@ import "../styles/App.css";
 import "../styles/Form.css";
 import Personal from "./Personal";
 import Skill from "./Skill";
+import Portofolio from "./Portofolio";
 
 class App extends Component {
   constructor(props) {
@@ -156,6 +157,8 @@ handleLocationInput = (checkedInput) =>{
 		  handleLocationInput = {this.handleLocationInput}
 		  onRemove = {this.removeItems}
         />
+		<h3> 3. Portfolio</h3>
+		<Portofolio/>
       </div>
     );
   }

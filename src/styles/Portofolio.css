@@ -1,0 +1,41 @@
+.portfolio-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.link{
+    width: 100%;
+    border-bottom: 1px solid #81868c;
+    margin-top: 10px; 
+   }
+   .form-item{
+    border-style: none;
+    background-color: transparent;
+    color: white;
+    padding: 10px 0px 10px 0;
+    border-bottom: 1px solid #81868c;
+    outline: none;
+    font-size: 2vh;
+  }
+  .sub-btn{
+    width: 100px;
+    padding: 15px 10px;
+    margin-top: 20px;
+    background-color: rgb(8, 145, 190);
+    border: none;
+    outline: none;
+    color: white;
+    font-size:2vh; 
+  }
+  .text-area-portofolio{
+      border:1px solid #81868c;
+      padding: 10px;
+      font-size: 2vh;
+      margin-top: 20px;
+  }
+  .paragraph-portofolio{
+      color: white;
+      line-height: 3vh;
+  }
