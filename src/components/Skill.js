@@ -4,8 +4,11 @@ import "../styles/Skill.css";
 import PropTypes from "prop-types";
 
 function Skill(props) {
+	const handlesubmit = e => {
+		e.preventDefault();
+	  };
   return (
-    <form action="submit">
+    <form action="submit" onSubmit={handlesubmit}>
       <p className="question"> Which is your primary design discipline?*</p>
       <ul className="radiobox">
         {props.radioInput.map((item, i) => {
@@ -96,12 +99,12 @@ function Skill(props) {
 }
 
 Skill.prototype = {
-  radioInput: PropTypes.array,
-  deciplineInput: PropTypes.array,
-  ocationInput: PropTypes.array,
-  handleRadio: PropTypes.func,
-  handleDeciplineInput: PropTypes.func,
-  handleLocationInput: PropTypes.func
+  radioInput: PropTypes.array.isRequired,
+  deciplineInput: PropTypes.array.isRequired,
+  ocationInput: PropTypes.array.isRequired,
+  handleRadio: PropTypes.func.isRequired,
+  handleDeciplineInput: PropTypes.func.isRequired,
+  handleLocationInput: PropTypes.func.isRequired
 };
 
 export default Skill;

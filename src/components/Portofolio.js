@@ -10,9 +10,12 @@ class Portofolio extends Component {
       text: ""
     };
   }
+   handlesubmit = e => {
+    e.preventDefault();
+  };
   render() {
     return (
-      <form action="submit" className="portfolio-form">
+      <form action="submit" className="portfolio-form" onSubmit={this.handlesubmit}>
         <p className="paragraph-portofolio">
           Prove you are IBM's next great designer by showing us who you are.
           What you've done. How you think. Tell us your story.
@@ -38,7 +41,6 @@ class Portofolio extends Component {
           }}
         />
         <button type="submit" className="sub-btn">
-          {" "}
           Submit
         </button>
       </form>
