@@ -45,9 +45,17 @@ class Skill extends Component {
                     id={item.id}
                     name={item.name}
                     checked={item.checked}
-                    onChange={() => {}}
+                    onChange={()=>{
+                      const checkedObjArr =this.props.deciplineInput.map((obj,n)=>{
+                        return n === i
+                        ? {...obj, checked:!obj.checked}
+                        : {...obj}
+                      })
+                      console.log(checkedObjArr)
+                      this.props.handleDeciplineInput(checkedObjArr);
+                    }}
                   />
-                  <label htmlFor="check1">{item.title}</label>
+                  <label htmlFor={item.id}>{item.title}</label>
                   <button className="delete">X</button>
                 </li>
               );
