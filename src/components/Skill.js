@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/App.css";
 import "../styles/Skill.css";
+import PropTypes from 'prop-types';
 
  function Skill (props) {
     return (
@@ -96,6 +97,15 @@ import "../styles/Skill.css";
         </button>
       </form>
     );
+  }
+
+  Skill.prototype = {
+	radioInput: PropTypes.array,
+	deciplineInput:PropTypes.array,
+	ocationInput:PropTypes.array,
+	handleRadio:PropTypes.func,
+	handleDeciplineInput:PropTypes.func,
+	handleLocationInput:PropTypes.func,
   }
 
 export default Skill;
