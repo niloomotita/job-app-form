@@ -1,26 +1,76 @@
-import React, { Component } from 'react';
-import './App.css';
-import '../styles/Skill.css'
+import React, { Component } from "react";
+import "../styles/App.css";
+import "../styles/Skill.css";
 
 class Skill extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-
-    }
-  }
   render() {
     return (
-      <div className="container">
-        <div className="header">
-          <h1 className="title">
-            Let's talk
-          </h1>
-          <p className="title"> Think you have what it takes? Show us.</p>
+      <form action="submit">
+        <p className="question"> Which is your primary design discipline?*</p>
+        <ul className="radiobox">
+          {this.props.radioInput.map((item, i) => {
+            return (
+              <li
+                key={i}
+                className={`${item.checked === true ? "blue radio" : " radio"}`}
+              >
+                <input
+                  className="radio-input design"
+                  type={item.type}
+                  id={item.id}
+                  name={item.name}
+                  checked={item.checked}
+                  onChange={() => {
+                    const changedCheck = this.props.radioInput.map((obj, n) => {
+                      return i === n
+                        ? { ...obj, checked: true }
+                        : { ...obj, checked: false };
+                    });
+                    this.props.handleRadio(changedCheck);
+                  }}
+                />
+                <label htmlFor={item.id}>{item.title}</label>
+              </li>
+            );
+          })}
+        </ul>
+        <div className="clmn">
+          <ul className="exp">
+            <p>Do you have experience with any other disciplines?</p>
+            {this.props.deciplineInput.map((item, i) => {
+              return (
+                <li className="check" key={i}>
+                  <input
+                    type={item.type}
+                    id={item.id}
+                    name={item.name}
+                    checked={item.checked}
+                    onChange={() => {}}
+                  />
+                  <label htmlFor="check1">{item.title}</label>
+                  <button className="delete">X</button>
+                </li>
+              );
+            })}
+          </ul>
+          <ul className="int">
+            <p>Where are you interested in working?</p>
+            <h5>
+              You must be legally authorized to work without visa sponsorship<br />{" "}
+              in that location you choose.
+            </h5>
+            {this.props.locationInput.map((item, i) => {
+              return (
+                <li className="check" key={i}>
+                  <input type={item.type} id={item.id} name={item.name} />
+                  <label htmlFor="texas">{item.title}</label>
+                  <button className="delete">X</button>
+                </li>
+              );
+            })}
+          </ul>
         </div>
-        <h3> 1. Personal information</h3>
-        <Form/>
-      </div>
+      </form>
     );
   }
 }

@@ -3,7 +3,7 @@ import "../styles/App.css";
 import "../styles/Form.css";
 import serializeForm from "form-serialize";
 
-class Form extends Component {
+class Personal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -124,4 +124,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default Personal;

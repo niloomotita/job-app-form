@@ -1,0 +1,121 @@
+*{
+    box-sizing: border-box;
+}
+.question{
+    color: white;
+    margin-bottom: 30px;
+}
+.radiobox{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+.radio{
+    border:1px solid white;
+    text-align: center;
+    flex: 1 1 auto;
+    padding: 20px 10px 20px 10px;
+    color: white;
+    margin: 10px;
+    max-width: 50%;
+}
+
+.radio-input{
+    opacity: 0;
+}
+.design{
+    margin-left: -10px;
+}
+input[type=radio]:checked + label {
+    background-color: #18AEE2;
+    color: white;
+    border: none;
+   }
+.clmn{
+    display: flex;
+    color: white;
+    justify-content: space-between;
+} 
+.int{
+    display: flex;
+    flex-direction: column;
+}
+.exp{
+    display: flex;
+    flex-direction: column;
+}
+input[type = checkbox] + label{
+    background-color: transparent;
+    border: none;
+}
+input[type = checkbox]{
+    opacity: 0;
+    margin-left: -15px;
+}
+
+input[type="checkbox"] + label::before {
+    border: 1px solid white;
+    content:"\00a0\00a0\00a0";
+    font: 20px/1em sans-serif;
+    height: 16px;
+    width: 16px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;    
+   
+  }
+  input[type="checkbox"]:checked + label::before {
+    background: #fff;
+    color: #333;
+    content: "\2713";
+    text-align: center;
+  }
+  .delete{
+    opacity:0;
+    padding: 2px 5px;
+}
+.delete:hover{
+    opacity:1;
+}
+ul{
+    padding-left: 0;
+    list-style: none;
+}
+.radio-wrap{
+    display: flex;
+    justify-content: space-between; 
+}
+.blue{
+    background-color: #18AEE2;
+    color: white;
+    border: none;
+}
+
+@media screen and  (max-width:480px){
+   
+    .radio{
+        flex:0 1 45%;
+        margin-right: 0;
+        margin-top: 20px;
+        width:48%; 
+    }
+    .radio-input{
+        opacity: 0;
+        margin-left: -3px;
+    }
+    .clmn{
+        flex-direction: column;
+    }
+    .check{
+        font-size: 17px;
+    }
+    h5, p {
+        font-size: 16px;
+    }
+    }
+
+  
