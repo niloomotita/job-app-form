@@ -44,22 +44,22 @@ class App extends Component {
           type: "checkbox",
           id: "check1",
           name: "check-answer1",
-		  title: "Visual Design",
-		  checked: false,
+          title: "Visual Design",
+          checked: false
         },
         {
           type: "checkbox",
           id: "check2",
           name: "check-answer2",
-		  title: "UX Design",
-		  checked: false,
+          title: "UX Design",
+          checked: false
         },
         {
           type: "checkbox",
           id: "check3",
           name: "check-answer1",
-		  title: "Front-end Development",
-		  checked: false,
+          title: "Front-end Development",
+          checked: false
         }
       ],
       locationInput: [
@@ -67,76 +67,76 @@ class App extends Component {
           type: "checkbox",
           id: "texas",
           name: "check-answer",
-		  title: "Austin, Texas",
-		  checked: false,
+          title: "Austin, Texas",
+          checked: false
         },
         {
           type: "checkbox",
           id: "new-york",
           name: "check-answer",
-		  title: "New York, New York",
-		  checked: false,
+          title: "New York, New York",
+          checked: false
         },
         {
           type: "checkbox",
           id: "canada",
           name: "check-answer",
-		  title: "Toronto, Canada",
-		  checked: false,
+          title: "Toronto, Canada",
+          checked: false
         },
         {
           type: "checkbox",
           id: "chaina",
           name: "check-answer",
-		  title: "Shanghai, China",
-		  checked: false,
+          title: "Shanghai, China",
+          checked: false
         },
         {
           type: "checkbox",
           id: "reland",
           name: "check-answer",
-		  title: "Dublin, Ireland",
-		  checked: false,
+          title: "Dublin, Ireland",
+          checked: false
         },
         {
           type: "checkbox",
           id: "uk",
           name: "check-answer",
-		  title: "Hursley, United Kingdom",
-		  checked: false,
+          title: "Hursley, United Kingdom",
+          checked: false
         },
         {
           type: "checkbox",
           id: "germany",
           name: "check-answer",
-		  title: "Boeblingen, Germany",
-		  checked: false,
+          title: "Boeblingen, Germany",
+          checked: false
         },
         {
           type: "checkbox",
           id: "some",
           name: "check-answer",
-		  title: "Somewhere else",
-		  checked: false,
+          title: "Somewhere else",
+          checked: false
         }
       ]
     };
   }
-  handleRadio = (radioIn) => {
-	  this.setState({
-		radioInput: radioIn
-	  })
+  handleRadio = radioIn => {
+    this.setState({
+      radioInput: radioIn
+    });
   };
-  handleDeciplineInput = (checkIn) => {
-	this.setState({
-	  deciplineInput: checkIn
-	})
-};
-handleLocationInput = (checkedInput) =>{
-	this.setState({
-		locationInput : checkedInput
-	})
-}
+  handleDeciplineInput = checkIn => {
+    this.setState({
+      deciplineInput: checkIn
+    });
+  };
+  handleLocationInput = checkedInput => {
+    this.setState({
+      locationInput: checkedInput
+    });
+  };
 
   render() {
     return (
@@ -152,13 +152,12 @@ handleLocationInput = (checkedInput) =>{
           radioInput={this.state.radioInput}
           deciplineInput={this.state.deciplineInput}
           locationInput={this.state.locationInput}
-		  handleRadio = {this.handleRadio}
-		  handleDeciplineInput = {this.handleDeciplineInput}
-		  handleLocationInput = {this.handleLocationInput}
-		  onRemove = {this.removeItems}
+          handleRadio={this.handleRadio}
+          handleDeciplineInput={this.handleDeciplineInput}
+          handleLocationInput={this.handleLocationInput}
         />
-		<h3> 3. Portfolio</h3>
-		<Portofolio/>
+        <h3> 3. Portfolio</h3>
+        <Portofolio />
       </div>
     );
   }
