@@ -136,6 +136,7 @@ handleLocationInput = (checkedInput) =>{
 		locationInput : checkedInput
 	})
 }
+
   render() {
     return (
       <div className="container">
@@ -153,6 +154,7 @@ handleLocationInput = (checkedInput) =>{
 		  handleRadio = {this.handleRadio}
 		  handleDeciplineInput = {this.handleDeciplineInput}
 		  handleLocationInput = {this.handleLocationInput}
+		  onRemove = {this.removeItems}
         />
       </div>
     );
