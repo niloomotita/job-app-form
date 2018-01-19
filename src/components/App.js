@@ -131,6 +131,11 @@ class App extends Component {
 	  deciplineInput: checkIn
 	})
 };
+handleLocationInput = (checkedInput) =>{
+	this.setState({
+		locationInput : checkedInput
+	})
+}
   render() {
     return (
       <div className="container">
@@ -147,6 +152,7 @@ class App extends Component {
           locationInput={this.state.locationInput}
 		  handleRadio = {this.handleRadio}
 		  handleDeciplineInput = {this.handleDeciplineInput}
+		  handleLocationInput = {this.handleLocationInput}
         />
       </div>
     );

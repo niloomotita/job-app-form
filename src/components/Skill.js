@@ -70,8 +70,21 @@ class Skill extends Component {
             {this.props.locationInput.map((item, i) => {
               return (
                 <li className="check" key={i}>
-                  <input type={item.type} id={item.id} name={item.name} />
-                  <label htmlFor="texas">{item.title}</label>
+                  <input 
+                    type={item.type} 
+                    id={item.id} 
+                    name={item.name}
+                    checked={item.checked}
+                    onChange = {()=>{
+                      const newlocationArr = this.props.locationInput.map((obj, n)=>{
+                        return i ===n
+                        ? {...obj, checked:!obj.checked}
+                        : {...obj}
+                      })
+                      this.props.handleLocationInput(newlocationArr)
+                    }} 
+                    />
+                  <label htmlFor={item.id}>{item.title}</label>
                   <button className="delete">X</button>
                 </li>
               );
