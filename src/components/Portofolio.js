@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../styles/App.css";
 import "../styles/Portofolio.css";
+import serializeForm from "form-serialize";
 
 class Portofolio extends Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class Portofolio extends Component {
   }
    handlesubmit = e => {
     e.preventDefault();
+    const values = serializeForm(e.target, { hash: true });
+    console.log(values)
   };
   render() {
     return (
@@ -23,6 +26,7 @@ class Portofolio extends Component {
         <input
           className="link form-item"
           type="text"
+          name="portofolio"
           placeholder="Portfolio link*"
           value={this.state.portofolio}
           onChange={e => {
