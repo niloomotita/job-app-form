@@ -39,3 +39,6 @@
       color: white;
       line-height: 3vh;
   }
+  .invalid{
+    border-bottom: 1px solid red !important
+  }

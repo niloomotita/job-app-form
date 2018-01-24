@@ -3,12 +3,22 @@ import "../styles/App.css";
 import "../styles/Portofolio.css";
 import serializeForm from "form-serialize";
 
+const validate = (portofolio)=>{
+  const portReg = /(https?:\/\/[^\s]+)/;
+  return {
+    portofolio:!portReg.test(portofolio),
+  }
+}
+
 class Portofolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       portofolio: "",
-      text: ""
+      text: "",
+      touched:{
+        portofolio:false,
+      }
     };
   }
    handlesubmit = e => {
@@ -16,7 +26,25 @@ class Portofolio extends Component {
     const values = serializeForm(e.target, { hash: true });
     console.log(values)
   };
+
+  handleBlur = e => {
+    this.setState({
+      touched: {
+        ...this.state.touched,
+        [e.target.name]: true,
+      }
+    });
+  }
+  showError = ()=>{
+    const {portofolio,touched} = this.state;
+    const errors = validate(portofolio);
+    return {
+      portofolio: touched.portofolio && errors.portofolio 
+    }
+  }
   render() {
+   const showErrors = this.showError()
+   console.log(showErrors)
     return (
       <form action="submit" className="portfolio-form" onSubmit={this.handlesubmit}>
         <p className="paragraph-portofolio">
@@ -24,11 +52,12 @@ class Portofolio extends Component {
           What you've done. How you think. Tell us your story.
         </p>
         <input
-          className="link form-item"
+          className={`link form-item ${showErrors.portofolio ? 'invalid' : ''}`}
           type="text"
           name="portofolio"
           placeholder="Portfolio link*"
           value={this.state.portofolio}
+          onBlur={this.handleBlur}
           onChange={e => {
             this.setState({ portofolio: e.target.value });
           }}
