@@ -71,6 +71,17 @@
   .invalid{
     border-bottom: 1px solid red !important
   }
+  .email-match{
+    display: none;
+  }
+  .emails-not-match{
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(5, 147, 194)
+  }
   
   @media screen and  (max-width:480px){
     .container{

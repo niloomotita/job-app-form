@@ -66,28 +66,29 @@ class Personal extends Component {
 }
 showError = () => {
 	const { name, phone, email,emailConfirm, adr, city, countryState, region, code, touched } = this.state;
-	const errors = validate(name, phone, email,emailConfirm, adr, city, countryState, region, code);
+	const errors = validate(name, phone, email, emailConfirm, adr, city, countryState, region, code);
+  console.log('errors.emailConfirm', errors.emailConfirm)
+  console.log('touched.emailConfirm', touched.emailConfirm)
 
 	return {
 		name: errors.name && touched.name,
 		phone: errors.phone && touched.phone,
 		email: errors.email && touched.email,
-		emailConfirm:errors.emailConfirm && touched.emailConfirm,
+		emailConfirm: touched.emailConfirm && email.localeCompare(emailConfirm),
 		adr:errors.adr && touched.adr,
 		city: errors.city && touched.city,
 		countryState: errors.countryState && touched.countryState,
 		region: errors.region && touched.region,
-		code: errors.code && touched.code,
-	}
+    code: errors.code && touched.code,
+  }
 }
 
   render() {
 	  const {name, phone, email,emailConfirm, adr, city, countryState, region, code} = this.state;
 	  const errors = validate(name, phone, email,emailConfirm, adr, city, countryState, region, code);
-	  console.log(Object.keys(errors))
-	  console.log(errors)
+	  console.log(Object.keys(errors,'errors key'))
 	  const showErrors = this.showError();
-	  console.log(showErrors)
+	  console.log(showErrors, 'showErrors')
     return (
       <form action="submit" className="form" onSubmit={this.handlesubmit}>
         <div className="name-phone">
@@ -97,7 +98,7 @@ showError = () => {
             className={`form-item name ${showErrors.name ? 'invalid' : ''}`}
             value={name}
             name="name"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event => this.setState({ name: event.target.value })}
           />
           <input
@@ -106,7 +107,7 @@ showError = () => {
             className={`form-item tel ${showErrors.phone ? 'invalid' : ''}`}
             value={phone}
             name="phone"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event => this.setState({ phone: event.target.value })}
           />
           <input
@@ -115,7 +116,7 @@ showError = () => {
             className={`form-item email ${showErrors.email ? 'invalid' : ''}`}
             value={email}
             name="email"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event => this.setState({ email: event.target.value })}
           />
           <input
@@ -124,11 +125,12 @@ showError = () => {
             className={`form-item email ${showErrors.emailConfirm ? 'invalid' : ''}`}
             value={emailConfirm}
             name="emailConfirm"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event =>
               this.setState({ emailConfirm: event.target.value })
             }
           />
+          <span className={`email-match ${showErrors.emailConfirm ? 'emails-not-match' : ''}`}> Your emails do not match!</span>
         </div>
 
         <input
@@ -137,7 +139,7 @@ showError = () => {
           className={`form-item adrs ${showErrors.adr ? 'invalid' : ''}`}
           value={adr}
           name="adr"
-		  onBlur={this.handleBlur}
+		      onBlur={this.handleBlur}
           onChange={event => this.setState({ adr: event.target.value })}
         />
         <input type="text" className="form-item adrs" />
@@ -148,7 +150,7 @@ showError = () => {
             className={`form-item city adr-item" ${showErrors.city ? 'invalid' : ''}`}
             value={city}
             name="city"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event => this.setState({ city: event.target.value })}
           />
           <input
@@ -157,7 +159,7 @@ showError = () => {
             className={`form-item state adr-item" ${showErrors.countryState ? 'invalid' : ''}`}
             value={countryState}
             name="countryState"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event =>
               this.setState({ countryState: event.target.value })
             }
@@ -168,7 +170,7 @@ showError = () => {
             className={`form-item region adr-item" ${showErrors.region? 'invalid' : ''}`}
             value={region}
             name="region"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event => this.setState({ region: event.target.value })}
           />
           <input
@@ -177,7 +179,7 @@ showError = () => {
             className={`form-item postcode adr-item" ${showErrors.code ? 'invalid' : ''}`}
             value={code}
             name="code"
-			onBlur={this.handleBlur}
+			      onBlur={this.handleBlur}
             onChange={event => this.setState({ code: event.target.value })}
           />
         </div>
