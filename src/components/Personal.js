@@ -2,25 +2,20 @@ import React, { Component } from "react";
 import "../styles/App.css";
 import "../styles/Form.css";
 import serializeForm from "form-serialize";
+import validator from 'validator';
 
 
 const validate =(name, phone, email,emailConfirm, adr, city, countryState, region, code)=>{
-	const nameReg = /^[a-zA-z]+(\s[a-zA-Z]+)+$/
-	const phoneReg =/^(\+|0{2})358-?0?[0-9]{9}$/
-	const emailReg =/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
-	const adrReg = /^(\w+\s\w?)/
-	const cityReg = /[a-zA-Z]{2,}/
-	const codeReg = /\d{5}/
 	return {
-		name: !nameReg.test(name),
-		phone: !phoneReg.test(phone),
-		email: !emailReg.test(email),
-		emailConfirm: !emailReg.test(emailConfirm),
-		adr:!adrReg.test(adr),
-		city:!cityReg.test(city),
-		countryState:!cityReg.test(countryState),
-		region:!cityReg.test(region),
-		code:!codeReg.test(code),
+		name: !validator.isAlpha(name),
+		phone: !validator.isMobilePhone(phone,"fi-FI"),
+		email: !validator.isEmail(email),
+		emailConfirm: !validator.isEmail(emailConfirm),
+		adr:!validator.isAlpha(adr),
+		city:!validator.isAlpha(city),
+		countryState:!validator.isAlpha(countryState),
+		region:!validator.isAlpha(region),
+		code:!validator.isInt(code,{min:5, max:20}),
 	}
 }
 
