@@ -85,7 +85,13 @@ showError = () => {
 	  const showErrors = this.showError();
 	  console.log(showErrors, 'showErrors')
     return (
-      <form action="submit" className="form" onSubmit={this.handlesubmit}>
+      <div>
+        <div >
+                <h1 className="title">Let's talk</h1>
+                <p className="title"> Think you have what it takes? Show us.</p>
+        </div>
+        <h3> 1. Personal information</h3>
+        <form action="submit" className="form" onSubmit={this.handlesubmit}>
         <div className="name-phone">
           <input
             type="text"
@@ -193,6 +199,8 @@ showError = () => {
           Submit
         </button>
       </form>
+    </div>
+      
     );
   }
 }

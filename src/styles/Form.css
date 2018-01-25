@@ -76,11 +76,12 @@
   }
   .emails-not-match{
     display: block;
-    margin-top: 10px;
+    margin-top: 0px;
     padding: 10px;
     border-radius: 5px;
     background-color: white;
-    color: rgb(5, 147, 194)
+    color: rgb(5, 147, 194);
+    margin-left: 20px;
   }
   
   @media screen and  (max-width:480px){
@@ -104,6 +105,15 @@
       flex: 0 0 45%;
       margin-right:0; 
       width: 48%;
+    }
+    .emails-not-match{
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: white;
+      color: rgb(5, 147, 194);
+      margin-left: 0;
     }
    
   }
@@ -129,6 +139,15 @@
         flex: 0 0 45%;
         margin-right:0; 
         width: 25%;
+      }
+      .emails-not-match{
+        display: block;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: white;
+        color: rgb(5, 147, 194);
+        margin-left: 0;
       }
     }
     

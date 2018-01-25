@@ -9,7 +9,7 @@ body{
   background-color: #444E57
 }
 .container{
-  width: 80%;
+ width: 80%;
   height: 100%;
   margin: 0 auto;
   
@@ -22,4 +22,7 @@ h3{
   color: white;
   border-bottom: 2px solid #18AEE2;
   padding: 10px;
+}
+form{
+  margin-bottom: 20px;
 }

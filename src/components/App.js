@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Route, BrowserRouter, Link } from "react-router-dom";
 import "../styles/App.css";
 import "../styles/Form.css";
 import Personal from "./Personal";
 import Skill from "./Skill";
 import Portofolio from "./Portofolio";
+import Header from "./Header";
 
 class App extends Component {
   constructor(props) {
@@ -140,25 +142,28 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="header">
-          <h1 className="title">Let's talk</h1>
-          <p className="title"> Think you have what it takes? Show us.</p>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <div className="container">
+            <Route exact path="/" component={Personal} />
+            <Route
+              path="/Form2"
+              render={() => (
+                <Skill
+                  radioInput={this.state.radioInput}
+                  deciplineInput={this.state.deciplineInput}
+                  locationInput={this.state.locationInput}
+                  handleRadio={this.handleRadio}
+                  handleDeciplineInput={this.handleDeciplineInput}
+                  handleLocationInput={this.handleLocationInput}
+                />
+              )}
+            />
+            <Route path="/Form3" component={Portofolio} />
+          </div>
         </div>
-        <h3> 1. Personal information</h3>
-        <Personal />
-        <h3> 2. Skills and location</h3>
-        <Skill
-          radioInput={this.state.radioInput}
-          deciplineInput={this.state.deciplineInput}
-          locationInput={this.state.locationInput}
-          handleRadio={this.handleRadio}
-          handleDeciplineInput={this.handleDeciplineInput}
-          handleLocationInput={this.handleLocationInput}
-        />
-        <h3> 3. Portfolio</h3>
-        <Portofolio />
-      </div>
+      </BrowserRouter>
     );
   }
 }
