@@ -7,29 +7,30 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuBtn: "not-visible",
-      headerVisibele: "visible-item",
-      spanClose: "visible-item",
+      menuBtn: "visible-item",
+      headerVisible: "not-visible",
+      spanClose: "not-visible",
     };
   }
   handleToggleOpen = () => {
     this.setState({
       menuBtn: "not-visible",
-      headerVisibele: "visible-item",
-      spanClose: "visible-item"
+      headerVisible: "visible-item",
+      spanClose: "visible-item",
+      
     });
   };
   handleToggleClose = () => {
     this.setState({
       menuBtn: "visible-item",
-      headerVisibele: "not-visible",
+      headerVisible: "not-visible",
       spanClose: "not-visible",
     });
   };
   render() {
     return (
       <div className="header-container">
-        <ul className={`header ${this.state.headerVisibele}`}>
+        <ul className={`header ${this.state.headerVisible}`}>
           <NavLink  exact to="/" className="item store">
             <li>Home</li>
           </NavLink>

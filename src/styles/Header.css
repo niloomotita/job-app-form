@@ -7,7 +7,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     
 }
 .header{
@@ -59,6 +59,9 @@
     color:#444E57;
 }
 @media screen and (max-width:480px){
+    .close{
+        display: none;
+    }
     .toggle{
         display: block;
         text-align: center;
@@ -76,6 +79,7 @@
         display: block;
     }
     .header{
+      
         border-top: 1px solid #444E57;
         text-align: center;
         width: 100%;
