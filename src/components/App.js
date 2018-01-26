@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Route, BrowserRouter, Link } from "react-router-dom";
+import { Route, BrowserRouter, Link, Redirect, Switch } from "react-router-dom";
 import "../styles/App.css";
 import "../styles/Form.css";
 import Personal from "./Personal";
 import Skill from "./Skill";
 import Portofolio from "./Portofolio";
 import Header from "./Header";
+import Error from "./Error"
 
 class App extends Component {
   constructor(props) {
@@ -143,13 +144,30 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        
         <div>
-          <Header />
-          <div className="container">
-            <Route exact path="/" component={Personal} />
-            <Route
-              path="/Form2"
-              render={() => (
+        <Switch>
+        <Route
+            exact
+            path="/"
+            render={() => (
+              <div>
+                <Header/>
+                <Personal/>
+              </div>
+            )}
+          />
+          <Route
+            exact
+            path="/home"
+            render={() => <Redirect to = "/"/>}
+          />
+          <Route
+            exact
+            path="/Form2"
+            render={() => (
+              <div>
+                <Header/>
                 <Skill
                   radioInput={this.state.radioInput}
                   deciplineInput={this.state.deciplineInput}
@@ -158,10 +176,26 @@ class App extends Component {
                   handleDeciplineInput={this.handleDeciplineInput}
                   handleLocationInput={this.handleLocationInput}
                 />
-              )}
-            />
-            <Route path="/Form3" component={Portofolio} />
-          </div>
+              </div>
+            )}
+          />
+          <Route
+            exact
+            path="/Form3"
+            render={() => (
+              <div>
+                <Header/>
+                <Portofolio />
+              </div>
+            )}
+          />
+          <Route
+            render={() => (
+              <Error/>
+            )}
+          />
+        </Switch>
+          
         </div>
       </BrowserRouter>
     );
