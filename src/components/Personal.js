@@ -85,7 +85,7 @@ showError = () => {
 	  const showErrors = this.showError();
 	  console.log(showErrors, 'showErrors')
     return (
-      <div>
+      <div className="wrapper container">
         <div >
                 <h1 className="title">Let's talk</h1>
                 <p className="title"> Think you have what it takes? Show us.</p>

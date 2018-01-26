@@ -46,7 +46,7 @@ class Portofolio extends Component {
     const showErrors = this.showError();
     console.log(showErrors);
     return (
-      <div>
+      <div className="wrapper container">
         <h3> 3. Portfolio</h3>
         <form
           action="submit"

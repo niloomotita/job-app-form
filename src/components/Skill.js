@@ -8,7 +8,7 @@ function Skill(props) {
     e.preventDefault();
   };
   return (
-    <div>
+    <div className="wrapper container">
       <h3> 2. Skills and location</h3>
       <form action="submit" onSubmit={handlesubmit}>
         <p className="question"> Which is your primary design discipline?*</p>
