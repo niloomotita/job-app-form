@@ -28,14 +28,16 @@ class Header extends Component {
     });
   };
   render() {
+ 
     return (
       <div className="header-container">
+         <NavLink exact to="/" className="item store home"><span >Home</span></NavLink>
         <ul className={`header ${this.state.headerVisible}`}>
           <NavLink  exact to="/" className="item store">
-            <li>Home</li>
+            <li>Personal Info</li>
           </NavLink>
           <NavLink to="/Form2" className="item about">
-            <li>Skills and Location</li>
+            <li>Skills</li>
           </NavLink>
           <NavLink to="/Form3" className="item contact">
             <li>Portfolio</li>
